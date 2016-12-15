@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      <title>{% block title %}{% endblock %} - Mirror Pila!</title>
+
+      <link rel="stylesheet" href="/assets/css/main.css" />
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+      <div id="footer">
+      {% block footer %}
+        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>
