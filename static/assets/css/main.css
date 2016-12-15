@@ -1,2 +1,16 @@
+body, html {
+  background-color: #000000;
+  color: #ffffff;
+}
 
-.important { color: #336699; }
+#content {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#time {
+  font-size: 4rem;
+}
+#date {
+  font-size: 1rem;
+}
