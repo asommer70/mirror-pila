@@ -1,0 +1,7 @@
+['openweathermap']
+# Get a key at http://openweathermap.org/ if you wnat to use Open Weather Maps for your weather forecast API.
+api_key: YOUR_API_KEY
+# Your City ID from city.list.json which can be downloaded here: http://bulk.openweathermap.org/sample/
+city_id: 4456703
+url: http://api.openweathermap.org/data/2.5
+units: imperial # Or change this to metric (default is Kelvin).

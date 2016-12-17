@@ -9,8 +9,12 @@ body, html {
 }
 
 #time {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 #date {
   font-size: 1rem;
+}
+
+.weather-icon {
+  width: 5em;
 }
