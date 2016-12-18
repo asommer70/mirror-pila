@@ -13,33 +13,42 @@
   <div class="row">
     <div class="col-6">
       <div id="weather">
-        <div>
-          <h2 id="city_name"></h2>
-          <span id="current_temp"></span>&deg; 
-          <br/><br/>
-          High: <span id="high_temp"></span>&deg; 
-          <br/>
-          Low: <span id="low_temp"></span>&deg; 
-          <br/>
-          <br/><br/>
+        <div class="row">
+          <div class="col-6">
+            <div>
+              <h2 id="city_name"></h2>
+              <span id="current_temp"></span>&deg; 
+              <br/><br/>
+              High: <span id="high_temp"></span>&deg; 
+              <br/>
+              Low: <span id="low_temp"></span>&deg; 
+              <br/>
+              <br/><br/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div>
+              <h2>Conditions:</h2> <span id="conditions"></span>
+              <br/>
+              <strong>Clouds:</strong> <span id="clouds"></span>%
+              <br/>
+              <img class="weather-icon" id="weather-icon" src="#" alt="Weather Icon"/>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <strong>Conditions:</strong> <span id="conditions"></span>
-          <br/>
-          <strong>Clouds:</strong> <span id="clouds"></span>%
-          <br/>
-          <img class="weather-icon" id="weather-icon" src="#" alt="Weather Icon"/>
-        </div>
 
-
-        <div>
-          <h4>Sunrise</h4>
-          <span id="sunrise"></span>
-        </div>
-        <div>
-          <h4>Sunset</h4>
-          <span id="sunset"></span>
+        <div class="row">
+          <div class="col-6">
+              <div>
+                <strong>Sunrise</strong>
+                <span id="sunrise"></span>
+                <br/>
+                <strong>Sunset</strong>
+                <span id="sunset"></span>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -52,8 +61,39 @@
 
   <br/><br/>
 
+  <div class="row">
+      <div id="forecast-html">
+      </div>
+
+      {% raw %}
+      <script id="forecast" type="text/x-handlebars-template">
+          {{#each list}}
+          <div class="col-2">
+            <div>
+              <h2>{{day}}</h2>
+              {{#each times}}
+                <h5>{{time}}</h5>
+                <img class="weather-icon" src="/static/assets/img/{{icon}}.svg" alt="Weather Icon"/>
+                <br/>
+                <strong>High:</strong> <span class="high_temp">{{temp_max}}</span>&deg; 
+                <br/>
+                <strong>Low:</strong> <span class="low_temp">{{temp_min}}</span>&deg; 
+                <br/>
+                <strong>Conditions:</strong> <span class="conditions">{{condition}}</span>
+                <br/>
+                <strong>Clouds:</strong> <span class="clouds">{{clouds}}</span>%
+                <br/>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
+    </script>
+    {% endraw %}
+
+    </div>
+  </div>
 
   <br/><br/>
 
-  <div id="forecast"></div>
 {% endblock %}
