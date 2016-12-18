@@ -3,9 +3,9 @@ body, html {
   color: #ffffff;
 }
 
-#content {
-  max-width: 90%;
-  margin: 0 auto;
+.container {
+  max-width: 100%;
+  /*margin: 0 auto;*/
 }
 
 #time {

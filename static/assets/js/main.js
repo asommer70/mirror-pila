@@ -17,31 +17,18 @@ setInterval(updateClock, 1000);
 function updateWeather() {
   axios.get('/api/weather')
     .then(function (response) {
-      console.log(response);
-      var weather = document.getElementById('weather');
-      var html = '';
+      document.getElementById('city_name').innerHTML = response.data.name;
+      document.getElementById('current_temp').innerHTML = response.data.main.temp;
+      document.getElementById('high_temp').innerHTML = response.data.main.temp_max;
+      document.getElementById('low_temp').innerHTML = response.data.main.temp_min;
 
-      html += '<div><h2>Temperature in ' + response.data.name + '</h2>';
-      html += response.data.main.temp + '&deg; <br/><br/>';
-      html += 'High: ' + response.data.main.temp_max + '&deg; <br/>';
-      html += 'Low: ' + response.data.main.temp_min + '&deg; <br/>';
-      html += '</div><br/>';
+      document.getElementById('conditions').innerHTML = response.data.weather[0].main;
+      document.getElementById('clouds').innerHTML = response.data.clouds.all;
+      document.getElementById('weather-icon').setAttribute('src', '/static/assets/img/' + response.data.weather[0].icon + '.svg');
 
-      html += '<div><h3>Conditions</h3>';
-      html += '<strong>Clouds:</strong> ' + response.data.clouds.all + '%<br/>';
-      html += '<strong>Description:</strong> ' + response.data.weather[0].main + '<br/>';
-      html += '<img class="weather-icon" src="/static/assets/img/' + response.data.weather[0].icon + '.svg" />';
-      html += '</div>';
+      document.getElementById('sunrise').innerHTML = moment.unix(response.data.sys.sunrise).format('h:mm:ss a');
+      document.getElementById('sunset').innerHTML = moment.unix(response.data.sys.sunset).format('h:mm:ss a');
 
-      html += '<div><h4>Sunrise</h4>';
-      html += moment.unix(response.data.sys.sunrise).format('h:mm:ss a');
-      html += '</div>';
-
-      html += '<div><h4>Sunset</h4>';
-      html += moment.unix(response.data.sys.sunset).format('h:mm:ss a');
-      html += '</div>';
-
-      weather.innerHTML = html;
     })
     .catch(function (error) {
       console.log(error);
@@ -49,5 +36,6 @@ function updateWeather() {
 
 }
 
-// Update every hour.
+// Call updateWeather() once to populate the page onload, then update every hour.
+updateWeather();
 setInterval(updateWeather, 1000 * 60 * 60);

@@ -2,9 +2,7 @@
 {% block title %}Home{% endblock %}
 
 {% block head %}
-  {{ super() }}
-  <style type="text/css">
-  </style>
+{{ super() }}
 {% endblock %}
 
 {% block content %}
@@ -12,11 +10,48 @@
   <br/>
   <br/>
 
-  <div id="clock"></div>
+  <div class="row">
+    <div class="col-6">
+      <div id="weather">
+        <div>
+          <h2 id="city_name"></h2>
+          <span id="current_temp"></span>&deg; 
+          <br/><br/>
+          High: <span id="high_temp"></span>&deg; 
+          <br/>
+          Low: <span id="low_temp"></span>&deg; 
+          <br/>
+          <br/><br/>
+        </div>
+
+        <div>
+          <strong>Conditions:</strong> <span id="conditions"></span>
+          <br/>
+          <strong>Clouds:</strong> <span id="clouds"></span>%
+          <br/>
+          <img class="weather-icon" id="weather-icon" src="#" alt="Weather Icon"/>
+        </div>
+
+
+        <div>
+          <h4>Sunrise</h4>
+          <span id="sunrise"></span>
+        </div>
+        <div>
+          <h4>Sunset</h4>
+          <span id="sunset"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div id="clock"></div>
+    </div>
+  </div>
+
 
   <br/><br/>
 
-  <div id="weather"></div>
 
   <br/><br/>
 
