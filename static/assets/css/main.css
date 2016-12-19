@@ -19,6 +19,11 @@ body, html {
   width: 5em;
 }
 
+.forecast-label h2 {
+  margin-bottom: 0;
+  vertical-align: bottom;
+}
+
 .weather-icon-small {
   width: 25px;
 }
