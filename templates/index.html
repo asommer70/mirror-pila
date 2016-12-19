@@ -17,11 +17,14 @@
           <div class="col-6">
             <div>
               <h2 id="city_name"></h2>
-              <span id="current_temp"></span>&deg; 
-              <br/><br/>
-              High: <span id="high_temp"></span>&deg; 
-              <br/>
-              Low: <span id="low_temp"></span>&deg; 
+              <p>Current: <strong><span id="current_temp"></span>&deg;</strong> </p>
+
+              <p>
+                High: <span id="high_temp"></span>&deg; 
+                <br/>
+                Low: <span id="low_temp"></span>&deg; 
+              </p>
+
               <br/>
               <br/><br/>
             </div>
@@ -68,22 +71,53 @@
       {% raw %}
       <script id="forecast" type="text/x-handlebars-template">
           {{#each list}}
-          <div class="col-2">
+          <div class="col-5">
             <div>
-              <h2>{{day}}</h2>
-              {{#each times}}
-                <h5>{{time}}</h5>
-                <img class="weather-icon" src="/static/assets/img/{{icon}}.svg" alt="Weather Icon"/>
-                <br/>
-                <strong>High:</strong> <span class="high_temp">{{temp_max}}</span>&deg; 
-                <br/>
-                <strong>Low:</strong> <span class="low_temp">{{temp_min}}</span>&deg; 
-                <br/>
-                <strong>Conditions:</strong> <span class="conditions">{{condition}}</span>
-                <br/>
-                <strong>Clouds:</strong> <span class="clouds">{{clouds}}</span>%
-                <br/>
-              {{/each}}
+              <h4>{{day}}</h4>
+                <table class="weather-days">
+                  <thead>
+                    <tr>
+                      <th>
+                        Time
+                      </th>
+                      <th>
+                        High
+                      </th>
+                      <th>
+                        Low
+                      </th>
+                      <th>
+                        Clouds
+                      </th>
+                      <th colspan="2">
+                        Conditions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each times}}
+                      <tr>
+                        <td>
+                          {{time}}
+                        </td>
+                        <td>
+                          {{temp_max}}&deg;
+                        </td>
+                        <td>
+                          {{temp_min}}&deg;
+                        </td>
+                        <td>
+                          {{clouds}}%
+                        </td>
+                        <td class="conditions" colspan="2">
+                          {{condition}}
+                          &nbsp;&nbsp;
+                          <img class="weather-icon-small" src="/static/assets/img/{{icon}}.svg" alt="Weather Icon"/>
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>

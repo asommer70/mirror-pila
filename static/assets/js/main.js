@@ -74,11 +74,8 @@ function adjustForecastData(data) {
   }
 
   data.forEach(function(item) {
-  //for (var i = 0; i < data.length; i++) {
-    //var item = data[i];
     var date = moment.unix(item.dt);
     var dateKey = date.format('MDY');
-    console.log('dateKey:', dateKey);
     var time = date.utcOffset(new Date().getTimezoneOffset()).format('hh:mm:ss');
   
     var rain = 0; 
@@ -96,10 +93,8 @@ function adjustForecastData(data) {
       icon: item.weather[0].icon,
     }
 
-    //console.log('days{}:', days[date.format('MDY')]);
     days[dateKey].times.push(timeData);
   })
-  //}
 
   return days;
 }
@@ -108,4 +103,4 @@ function adjustForecastData(data) {
 
 // Call updateWeather() once to populate the page onload, then update every hour.
 updateForecast();
-//setInterval(updateForecast, 1000 * 60 * 60);
+setInterval(updateForecast, 1000 * 60 * 60);

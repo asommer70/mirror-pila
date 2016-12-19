@@ -15,7 +15,7 @@ body {
   padding: 0;
   left: 0;
   top: 0;
-  font-size: 100%;
+  /*font-size: 100%;*/
 }
 
 /* ROOT FONT STYLES */
@@ -23,7 +23,7 @@ body {
 * {
   font-family: 'Lato', Helvetica, sans-serif;
   color: #ffffff;
-  line-height: 1.5;
+  /*line-height: 1.5;*/
 }
 
 /* TYPOGRAPHY */

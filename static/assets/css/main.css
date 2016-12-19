@@ -18,3 +18,28 @@ body, html {
 .weather-icon {
   width: 5em;
 }
+
+.weather-icon-small {
+  width: 25px;
+}
+
+table.weather-days: {
+  font-size: 12px;
+}
+
+thead {
+}
+
+th {
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid white;
+}
+
+td, th {
+  padding: 0 3px;
+}
+
+.conditions {
+  vertical-align: middle;
+}
