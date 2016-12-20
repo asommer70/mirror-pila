@@ -17,7 +17,8 @@ def write_temp():
   input = ser.readline()
 
   try:
-      json.loads(input)
+      data = json.loads(input)
+      #print data
       file.write(input)
       file.close()
       exit(0)
