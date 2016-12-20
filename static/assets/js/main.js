@@ -50,7 +50,14 @@ function updateForecast() {
       console.log('list:', list);
       var source   = document.getElementById("forecast").innerHTML;
       var template = Handlebars.compile(source);
-      document.getElementById('forecast-html').innerHTML = template({list: list});
+
+      // Only include the first two days due to space.
+      two = [
+        list[moment().add(1, 'day').format('MDY')], 
+        list[moment().add(2, 'day').format('MDY')], 
+      ];
+      console.log('two:', two);
+      document.getElementById('forecast-html').innerHTML = template({list: two});
     })
     .catch(function (error) {
       console.log(error);
@@ -104,3 +111,17 @@ function adjustForecastData(data) {
 // Call updateWeather() once to populate the page onload, then update every hour.
 updateForecast();
 setInterval(updateForecast, 1000 * 60 * 60);
+
+function getInsideTemp() {
+  axios.get('/static/data/inside_temp.json')
+    .then(function (response) {
+      console.log('repsonse:', response);
+      document.getElementById('inside-temp').innerHTML = response.data.temp;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+getInsideTemp();
+setInterval(getInsideTemp, 1000 * 60 * 10);

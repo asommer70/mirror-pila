@@ -1,6 +1,8 @@
 from flask import Flask, request, url_for, render_template, jsonify
 import ConfigParser
 import urllib, json
+import serial
+import subprocess
 
 config = ConfigParser.RawConfigParser()
 config.read('defaults.cfg')
@@ -32,3 +34,27 @@ def forecast():
     response = urllib.urlopen(WEATHER_URL + "/forecast" + API_PARAMS)
     data = json.loads(response.read())
     return jsonify(data)
+
+
+#@app.route('/api/inside_temp')
+#def inside_temp():
+#    #monitor_status = subprocess.check_output("xset -q | grep 'Monitor is On'", shell=True)
+#    
+#    ser = serial.Serial('/dev/ttyACM0', 9600)
+#   
+#    count = 0
+#    while 1:
+#        #input = ser.readline()
+#        input = ser.readline()
+#        #print input
+#        ++count
+#        #if (count > 0): 
+#        return jsonify(input)
+#        #else:
+#        #    return jsonify({'temp': 'unknown'})
+#        
+#        #if (input[12:18] == 'motion'):
+#            #if (monitor_status != ""):
+#                #subprocess.call(["xset", "dpms", "force", "on"])
+#    
+#
