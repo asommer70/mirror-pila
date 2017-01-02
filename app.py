@@ -17,8 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    name = 'Beans...'
-    return render_template('index.html', name=name)
+    return render_template('index.html')
 
 
 
@@ -35,26 +34,10 @@ def forecast():
     data = json.loads(response.read())
     return jsonify(data)
 
+@app.route('/api/outside_temp')
+def outside_temp():
+    response = urllib.urlopen('http://thermo/data.json')
+    data = json.loads(response.read())
+    return jsonify(data)
 
-#@app.route('/api/inside_temp')
-#def inside_temp():
-#    #monitor_status = subprocess.check_output("xset -q | grep 'Monitor is On'", shell=True)
-#    
-#    ser = serial.Serial('/dev/ttyACM0', 9600)
-#   
-#    count = 0
-#    while 1:
-#        #input = ser.readline()
-#        input = ser.readline()
-#        #print input
-#        ++count
-#        #if (count > 0): 
-#        return jsonify(input)
-#        #else:
-#        #    return jsonify({'temp': 'unknown'})
-#        
-#        #if (input[12:18] == 'motion'):
-#            #if (monitor_status != ""):
-#                #subprocess.call(["xset", "dpms", "force", "on"])
-#    
-#
+

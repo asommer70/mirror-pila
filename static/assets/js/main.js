@@ -86,8 +86,10 @@ function adjustForecastData(data) {
     var time = date.utcOffset(new Date().getTimezoneOffset()).format('hh:mm:ss');
   
     var rain = 0; 
-    if (item.rain.hasOwnProperty('3h')) {
-      rain = Math.round(item.rain['3h'] * 100);
+    if (item.hasOwnProperty('rain')) {
+      if (item.rain.hasOwnProperty('3h')) {
+        rain = Math.round(item.rain['3h'] * 100);
+      }
     }
     
     var timeData = {
@@ -125,3 +127,18 @@ function getInsideTemp() {
 
 getInsideTemp();
 setInterval(getInsideTemp, 1000 * 60 * 10);
+
+function getOutsideTemp() {
+  axios.get('/api/outside_temp')
+    .then(function (response) {
+      console.log('repsonse:', response);
+      document.getElementById('outside-temp').innerHTML = response.data.temp;
+      document.getElementById('outside-humidity').innerHTML = response.data.humidity;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+getOutsideTemp();
+setInterval(getOutsideTemp, 1000 * 60 * 10);
