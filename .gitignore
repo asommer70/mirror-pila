@@ -93,3 +93,6 @@ ENV/
 *.swo
 .DS_Store
 defaults.cfg
+
+public/js/bundle.js
+node_modules/
