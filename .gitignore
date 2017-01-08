@@ -95,4 +95,5 @@ ENV/
 defaults.cfg
 
 public/js/bundle.js
+public/js/style.css
 node_modules/

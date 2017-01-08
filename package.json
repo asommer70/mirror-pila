@@ -33,6 +33,7 @@
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.6",
     "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "git+https://github.com/webpack/extract-text-webpack-plugin.git",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0-rc.0"
   }
