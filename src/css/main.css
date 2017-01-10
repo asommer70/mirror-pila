@@ -1,3 +1,10 @@
 body {
-  background-color: #eeeeee;
+  background-color: #cccccc;
+}
+
+#app {
+  background-color: white;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3em;
 }
