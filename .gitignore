@@ -96,5 +96,5 @@ defaults.cfg
 
 public/js/bundle.js
 public/js/vendor.js
-public/js/style.css
+public/css/style.css
 node_modules/

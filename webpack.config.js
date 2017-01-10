@@ -42,7 +42,7 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin('../css/style.css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
