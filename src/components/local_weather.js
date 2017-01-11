@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
+import Icon from './icon';
+
 export default class LocalWeather extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +72,7 @@ export default class LocalWeather extends Component {
               <br/>
               <strong>Clouds:</strong> <span id="clouds">{this.state.clouds}</span>%
               <br/>
-              <img className="weather-icon" id="weather-icon" src="#" alt="Weather Icon"/>
+              <Icon name={this.state.icon} />
             </div>
           </div>
         </div>
