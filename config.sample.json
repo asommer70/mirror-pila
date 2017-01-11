@@ -1,0 +1,8 @@
+{
+  "openweathermap": {
+    "apiKey": "YOUR_API_KEY",
+    "cityId": "YOUR_CITY_ID",
+    "url": "http://api.openweathermap.org/data/2.5",
+    "units": "imperial"
+  }
+}

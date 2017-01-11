@@ -98,3 +98,4 @@ public/js/bundle.js
 public/js/vendor.js
 public/css/style.css
 node_modules/
+config.json

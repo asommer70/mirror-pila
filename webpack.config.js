@@ -3,7 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDOR_LIBS = [
-  'react', 'react-dom', 'moment'
+  'react', 'react-dom', 'moment', 'axios'
 ]
 
 const config = {
