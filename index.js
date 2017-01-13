@@ -15,6 +15,17 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+// GET /api/outside data from outside temp sensor.
+app.get('/api/outside', (req, res) => {
+  axios.get(config.sensors.outsideUrl)
+    .then(function(outsideRes) {
+      res.json(outsideRes.data);
+    })
+    .catch(function (error) {
+      console.log('outside GET error:', error);
+    });
+});
+
 // GET data from Open Weather Maps.
 app.get('/api/:type', (req, res) => {
   axios.get(config.weather.url + '/' + req.params.type + WEATHER_PARAMS)
@@ -22,6 +33,7 @@ app.get('/api/:type', (req, res) => {
       res.json(owmRes.data);
     });
 });
+
 
 
 //

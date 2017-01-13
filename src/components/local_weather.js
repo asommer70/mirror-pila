@@ -22,7 +22,6 @@ export default class LocalWeather extends Component {
     // Get data from the API.
     axios.get('/api/weather')
       .then((res) => {
-        console.log('res.data:', res.data);
         var clouds;
         if (res.data.clouds.hasOwnProperty('all')) {
           clouds = res.data.clouds.all;
@@ -46,7 +45,6 @@ export default class LocalWeather extends Component {
   }
 
   render() {
-    console.log("this.state.weather:", this.state.weather);
     return (
       <div>
         <div className="row">

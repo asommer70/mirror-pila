@@ -97,5 +97,6 @@ defaults.cfg
 public/js/bundle.js
 public/js/vendor.js
 public/css/style.css
+public/data/inside_temp.json
 node_modules/
 config.json

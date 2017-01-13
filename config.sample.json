@@ -4,5 +4,9 @@
     "cityId": "YOUR_CITY_ID",
     "url": "http://api.openweathermap.org/data/2.5",
     "units": "imperial"
+  },
+  "sensors": {
+    "outsideUrl": "YOUR_OUTSIDE_SENSOR_URL",
+    "insideUrl": "YOUR_INSIDE_SENSOR_URL"
   }
 }

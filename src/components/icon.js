@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default (props) => {
-  console.log('Icon props:', props);
   let data;
   switch (props.name) {
     case '01d':

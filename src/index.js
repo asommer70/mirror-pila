@@ -1,10 +1,13 @@
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import './css/simple-grid.css';
 import './css/main.css';
 
-import LocalWeather from './components/local_weather';
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import LocalWeather from './components/local_weather';
+import Clock from './components/clock';
+import SensorTemp from './components/sensor_temp';
 
 class App extends Component {
   render() {
@@ -14,7 +17,9 @@ class App extends Component {
           <LocalWeather />
         </div>
         <div className="col-6">
+          <Clock />
 
+          <SensorTemp />
         </div>
       </div>
     )
