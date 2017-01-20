@@ -5,3 +5,7 @@ body {
 #app {
   color: white;
 }
+
+.dayIcon svg {
+  width: 48px;
+}

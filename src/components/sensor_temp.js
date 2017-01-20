@@ -21,7 +21,6 @@ export default class SensorTemp extends Component {
 
     axios.get('/data/inside_temp.json')
       .then((res) => {
-        console.log('insideTemp res.data:', res.data);
         this.setState({insideTemp: res.data.temp});
       })
       .catch(function (error) {
