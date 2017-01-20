@@ -74,21 +74,39 @@ export default class Forecast extends Component {
     return (
       <div>
         <h2>Forecast</h2>
-        {this.state.forecast.map((day) => {
-          return (
-            <div key={day.date} className="row">
-              <div className="col-4">
-                <h4>{day.date}</h4>
-                <div>
-                  {day.temp_min} &nbsp; &nbsp; <span className="dayIcon"><Icon name={day.min_icon} /></span>
-                </div>
-                <div>
-                  {day.temp_max} &nbsp;&nbsp;  <span className="dayIcon"><Icon name={day.max_icon} /></span>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th colSpan="2">Min</th>
+              <th colSpan="2">Max</th>
+            </tr>
+            <tr><td><br/></td><td></td><td></td></tr>
+          </thead>
+          <tbody>
+            {this.state.forecast.map((day) => {
+              return (
+                <tr key={day.date}>
+                  <td>
+                    <span className="dayDate">{day.date}</span>
+                  </td>
+                  <td>
+                    {day.temp_min}
+                  </td>
+                  <td>
+                     <span className="dayIcon"><Icon name={day.min_icon} /></span>
+                  </td>
+                  <td>
+                    {day.temp_max}
+                  </td>
+                  <td>
+                     <span className="dayIcon"><Icon name={day.max_icon} /></span>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
     )
   }

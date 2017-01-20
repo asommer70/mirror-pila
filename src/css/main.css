@@ -8,4 +8,28 @@ body {
 
 .dayIcon svg {
   width: 48px;
+  height: 48px;
+  padding: 0 20px;
 }
+
+.dayDate {
+  padding-right: 20px;
+}
+
+td {
+  border-bottom: 10px solid transparent;
+}
+
+th {
+  border-bottom: 4px solid #FFFFFF;
+  margin-bottom: 40px;
+}
+
+/*tr {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+table {
+  border-spacing:
+}*/
