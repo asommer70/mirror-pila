@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <wiringPi.h>
 
 #define MOTION_PIN 7
@@ -27,27 +28,30 @@ int getMonitorStatus() {
   }
 }
 
+void checkStatus() {
+  // Get monitor status.
+  int status = getMonitorStatus();
+
+  // If monitor status is False execute the turnon.sh script.
+  if (status == 0) {
+    system("/usr/local/bin/turnon.sh");
+  }
+}
+
 int main (void) {
+  // Setup MOTION_PIN for falling-edge interrupt.
+  system("gpio edge 7 falling");
   wiringPiSetup();
   pinMode(MOTION_PIN, INPUT);
 
   for (;;) {
-    // Motion detected...
-    //printf("digitalRead(MOSTION_PIN): %d \n", digitalRead(MOTION_PIN));
+    // Use the interrupt to free up the CPU.
+    wiringPiISR(MOTION_PIN, INT_EDGE_FALLING, checkStatus);
 
-    if (digitalRead(MOTION_PIN) == HIGH) {
+    // Non-interrupt method that takes up 80-90% of the CPU.
+    //if (digitalRead(MOTION_PIN) == HIGH) {
       //printf("Motion detected!\n");
-
-      // Get monitor status.
-      int status = getMonitorStatus();
-
-      
-      // If monitor status is False execute the turnon.sh script.
-      if (status == 0) {
-        FILE *fp = popen("/usr/local/bin/turnon.sh", "r");
-        pclose(fp);
-      }
-    }
+    //}
   }
 
   return(0);
