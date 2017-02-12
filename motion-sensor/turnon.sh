@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export DISPLAY=:0
-xset dpms force on
+DISPLAY=:0
+xset -display :0 dpms force on
