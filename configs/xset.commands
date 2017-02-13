@@ -1,0 +1,11 @@
+# Turn off monitor in 40s.
+xset dpms 0 0 40
+
+# View xset configs.
+xset -q
+
+# Turn off monitor.
+xset dpms force off
+
+# Turn on monitor.
+xset dpms force on
