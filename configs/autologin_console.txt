@@ -1,0 +1,6 @@
+Copy the override.conf file to
+/etc/systemd/system/getty@tty1.service.d/
+
+as per: http://forums.debian.net/viewtopic.php?t=123694
+
+this will automatically login the console to the user specified.
